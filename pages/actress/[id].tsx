@@ -107,7 +107,7 @@ const Post: NextPage<Props> = ({ Data }) => {
 
 export default Post;
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
   const paths = actressList.map((actress) => {
     return {
       params: {
@@ -126,7 +126,7 @@ export interface ParamsObj {
   id: string;
 }
 
-export async function getStaticProps({ params }: { params: ParamsObj }) {
+export async function getServerSideProps({ params }: { params: ParamsObj }) {
   const Data = actressList.find(function (actress) {
     return actress.pageUrl === params.id;
   });
