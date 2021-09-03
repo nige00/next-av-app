@@ -19,7 +19,7 @@ export const fixedSentence = {
     );
   })(),
   affiliateLink:
-    "https://lp.hnext.jp/?utm_source=linka&utm_medium=a_n&utm_campaign=a_n_title_adult",
+    "https://link-a.net/gate.php?guid=on&mcode=kn4tehcd&acode=jwejkj7jxusz&itemid=0",
   microCopy: "＼31日間無料 + 1200円分のポイントGET！／",
   hnext: "H-NEXT",
   keywords: "見放題,AV,H-NEXT,U-NEXT,FALENO,お得,30日間無料,VOD,AV女優一覧",

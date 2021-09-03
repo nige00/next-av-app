@@ -4,7 +4,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import ReviewStar from "../../components/ReviewStar";
 import { Datas } from "../../lib/Datas";
-import { actressList } from "../../lib/actressList";
+import { genreList } from "../../lib/genreList";
 import { fixedSentence } from "../../lib/fixedSentence";
 
 type Props = {
@@ -16,13 +16,13 @@ const Post: NextPage<Props> = ({ Data }) => {
     return <div>Loading...</div>;
   }
 
-  // URLに合わせて女優の出演作品を抽出
-  let actressAvList = Datas.filter((item) => {
-    if (item.actress == Data.actressName) {
+  // URLに合わせて監督作品を抽出
+  let genreAvList = Datas.filter((item) => {
+    if (item.genre == Data.genreName) {
       return item;
-    } else if (item.actress.length > 1) {
-      for (let i = 0; i < item.actress.length; i++) {
-        if (item.actress[i] == Data.actressName) {
+    } else if (item.genre.length > 1) {
+      for (let i = 0; i < item.genre.length; i++) {
+        if (item.genre[i] == Data.genreName) {
           return item;
         }
       }
@@ -30,7 +30,7 @@ const Post: NextPage<Props> = ({ Data }) => {
   });
 
   // 評価順に並び替え
-  actressAvList.sort(function (a, b) {
+  genreAvList.sort(function (a, b) {
     if (a.aveReviewPoint < b.aveReviewPoint) return 1;
     if (a.aveReviewPoint > b.aveReviewPoint) return -1;
     return 0;
@@ -38,13 +38,13 @@ const Post: NextPage<Props> = ({ Data }) => {
 
   return (
     <Layout
-      title={`${fixedSentence.date}H-NEXTで見れる『${Data.actressName}』のAVまとめ`}
-      description={`H-NEXTで見れる${Data.actressName}の作品まとめ`}
+      title={`${fixedSentence.date}H-NEXTで見れる『${Data.genreName}』ジャンルのAVまとめ`}
+      description={`H-NEXTで見れる${Data.genreName}ジャンルのAVまとめ`}
       keyword={fixedSentence.keywords}
-      url={`${fixedSentence.url}/actress/${decodeURI(Data.actressName)}`}
+      url={`${fixedSentence.url}/genre/${decodeURI(Data.genreName)}`}
       type="article"
     >
-      <h1 className="text-xl sm:text-2xl text-gray-600">{`${fixedSentence.date}H-NEXTで見れる『${Data.actressName}』のAV一覧【${actressAvList.length}件】`}</h1>
+      <h1 className="text-xl sm:text-2xl text-gray-600">{`${fixedSentence.date}H-NEXTで見れる『${Data.genreName}』ジャンルのAVまとめ【${genreAvList.length}件】`}</h1>
       <div className="py-4 sm:px-4">
         <p>{fixedSentence.caution}</p>
       </div>
@@ -67,19 +67,19 @@ const Post: NextPage<Props> = ({ Data }) => {
         </div>
         <div className="px-1">{`>`}</div>
         <div className="flex space-x-4">
-          <Link href="/actress">
-            <a>AV女優一覧</a>
+          <Link href="/genre">
+            <a>ジャンル一覧</a>
           </Link>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 w-11/12">
-        {actressAvList.map((content, index) => {
+        {genreAvList.map((content, index) => {
           return (
             <div key={content.forUrlNumber}>
               <div className="flex flex-col justify-center items-center">
                 <span className="inline-block py-2 px-8 text-xl text-white bg-pink-400 rounded">{`${
                   index + 1
-                } / ${actressAvList.length}`}</span>
+                } / ${genreAvList.length}`}</span>
               </div>
               <div className="pt-4">
                 <Link href={`/posts/${content.forUrlNumber}`} passHref>
@@ -121,10 +121,10 @@ const Post: NextPage<Props> = ({ Data }) => {
 export default Post;
 
 export async function getServerSidePaths() {
-  const paths = actressList.map((actress) => {
+  const paths = genreList.map((genre) => {
     return {
       params: {
-        id: String(actress.pageUrl),
+        id: String(genre.pageUrl),
       },
     };
   });
@@ -140,8 +140,8 @@ export interface ParamsObj {
 }
 
 export async function getServerSideProps({ params }: { params: ParamsObj }) {
-  const Data = actressList.find(function (actress) {
-    return actress.pageUrl === params.id;
+  const Data = genreList.find(function (genre) {
+    return genre.pageUrl === params.id;
   });
 
   return {

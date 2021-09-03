@@ -31,6 +31,9 @@ const Home: NextPage = () => {
           詳しくはこちらから
         </a>
       </div>
+      <div className="py-4 sm:px-4">
+        <p>{fixedSentence.caution}</p>
+      </div>
       <h2 className="text-3xl">H-NEXTで見れるAVランキングTOP100！</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 w-11/12">
         {ranking.map((content, index) => {

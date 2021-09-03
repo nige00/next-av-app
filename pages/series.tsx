@@ -1,19 +1,19 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Layout from "../components/Layout";
-import { actressList } from "../lib/actressList";
+import { seriesList } from "../lib/seriesList";
 import { fixedSentence } from "../lib/fixedSentence";
 
-const Actress: NextPage = () => {
+const series: NextPage = () => {
   return (
     <Layout
-      title={`${fixedSentence.date}H-NEXTで見れるAV女優まとめ`}
-      description={`H-NEXTで見れるAV女優まとめ`}
+      title={`${fixedSentence.date}H-NEXTで見れるAVシリーズまとめ`}
+      description={`H-NEXTで見れるAVシリーズまとめ`}
       keyword={fixedSentence.keywords}
-      url={`${fixedSentence.url}/actress`}
+      url={`${fixedSentence.url}/series`}
       type="article"
     >
-      <h1 className="text-xl sm:text-2xl text-gray-600">{`${fixedSentence.date}H-NEXTで見れる、AV女優まとめ【${actressList.length}人】`}</h1>
+      <h1 className="text-xl sm:text-2xl text-gray-600">{`${fixedSentence.date}H-NEXTで見れる、AVシリーズまとめ【${seriesList.length}件】`}</h1>
       <div className="py-4 sm:px-4">
         <p>{fixedSentence.caution}</p>
       </div>
@@ -29,12 +29,12 @@ const Actress: NextPage = () => {
         </a>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-6 w-11/12">
-        {actressList.map((content) => {
+        {seriesList.map((content) => {
           return (
-            <div key={content.actressName}>
-              <Link href={`/actress/${content.pageUrl}`}>
+            <div key={content.seriesName}>
+              <Link href={`/series/${content.pageUrl}`}>
                 <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
-                  {content.actressName}
+                  {content.seriesName}
                 </a>
               </Link>
             </div>
@@ -56,4 +56,4 @@ const Actress: NextPage = () => {
   );
 };
 
-export default Actress;
+export default series;

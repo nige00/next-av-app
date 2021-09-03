@@ -84,6 +84,19 @@ const Post: NextPage<Props> = ({ Data }) => {
             />
           </a>
         </div>
+        <div className="flex items-center w-full sm:px-4 pb-4 sm:pb-2">
+          <div className="flex space-x-4">
+            <Link href="/">
+              <a>ホーム</a>
+            </Link>
+          </div>
+          <div className="px-1">{`>`}</div>
+          <div className="flex space-x-4">
+            <Link href="/posts">
+              <a>AV作品一覧</a>
+            </Link>
+          </div>
+        </div>
         <div className="sm:flex sm:flex-1">
           <div className="sm:p-4 sm:w-1/2">
             <h2 className="text-xl">作品内容</h2>
@@ -123,9 +136,7 @@ const Post: NextPage<Props> = ({ Data }) => {
                     ))
                   : Data.actress.map((data: string) => (
                       <span className="pr-1" key={data}>
-                        <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
-                          {data}
-                        </a>
+                        {data}
                       </span>
                     ))}
               </div>
@@ -133,45 +144,81 @@ const Post: NextPage<Props> = ({ Data }) => {
                 <span>監督</span>
               </div>
               <div className="py-2 border-b border-gray-300">
-                {Data.director &&
-                  Data.director.map((data: string) => (
-                    <span className="pr-1" key={data}>
-                      {data}
-                    </span>
-                  ))}
+                {Data.director && Data.director != "----"
+                  ? Data.director.map((data: string) => (
+                      <span className="pr-1" key={data}>
+                        <Link href={`/director/${decodeURI(data)}`} passHref>
+                          <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
+                            {data}
+                          </a>
+                        </Link>
+                      </span>
+                    ))
+                  : Data.director.map((data: string) => (
+                      <span className="pr-1" key={data}>
+                        {data}
+                      </span>
+                    ))}
               </div>
               <div className="py-2 border-b border-gray-300">
                 <span>シリーズ</span>
               </div>
               <div className="py-2 border-b border-gray-300">
-                {Data.series &&
-                  Data.series.map((data: string) => (
-                    <span className="pr-1" key={data}>
-                      {data}
-                    </span>
-                  ))}
+                {Data.series && Data.series != "----"
+                  ? Data.series.map((data: string) => (
+                      <span className="pr-1" key={data}>
+                        <Link href={`/series/${decodeURI(data)}`} passHref>
+                          <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
+                            {data}
+                          </a>
+                        </Link>
+                      </span>
+                    ))
+                  : Data.series.map((data: string) => (
+                      <span className="pr-1" key={data}>
+                        {data}
+                      </span>
+                    ))}
               </div>
               <div className="py-2 border-b border-gray-300">
                 <span>メーカー</span>
               </div>
               <div className="py-2 border-b border-gray-300">
-                {Data.maker &&
-                  Data.maker.map((data: string) => (
-                    <span className="pr-1" key={data}>
-                      {data}
-                    </span>
-                  ))}
+                {Data.maker && Data.maker != "----"
+                  ? Data.maker.map((data: string) => (
+                      <span className="pr-1" key={data}>
+                        <Link href={`/maker/${decodeURI(data)}`} passHref>
+                          <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
+                            {data}
+                          </a>
+                        </Link>
+                      </span>
+                    ))
+                  : Data.maker.map((data: string) => (
+                      <span className="pr-1" key={data}>
+                        {data}
+                      </span>
+                    ))}
               </div>
               <div className="py-2 border-b border-gray-300">
                 <span>ジャンル</span>
               </div>
               <div className="py-2 border-b border-gray-300">
-                {Data.genre &&
-                  Data.genre.map((data: string) => (
-                    <span className="pr-1" key={data}>
-                      {data}
-                    </span>
-                  ))}
+                {Data.genre && Data.genre != "----"
+                  ? Data.genre.map((data: string) => (
+                      <span className="pr-1" key={data}>
+                        <Link href={`/genre/${decodeURI(data)}`} passHref>
+                          <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
+                            {data}
+                          </a>
+                        </Link>
+                      </span>
+                    ))
+                  : Data.genre.map((data: string) => (
+                      <span className="pr-1" key={data}>
+                        {data}
+                      </span>
+                    ))}
               </div>
             </div>
           </div>
