@@ -7,7 +7,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     loc: `https://www.next-av-app.com/series/${decodeURI(data.pageUrl)
       .substr(0, 10)
       .replace(
-        /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）|・|〜|『|』|-| |。|ー|’|、|…|％|～|？|☆|‘|ュ|I.B./g,
+        /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）|・|〜|『|』|-| |。|ー|’|、|…|％|～|？|☆|‘|ュ|I.B.|&|<|>/g,
         ""
       )}`,
     lastmod: new Date().toISOString(),
