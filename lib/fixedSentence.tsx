@@ -23,5 +23,5 @@ export const fixedSentence = {
   microCopy: "＼31日間無料 + 1200円分のポイントGET！／",
   hnext: "H-NEXT",
   keywords: "見放題,AV,H-NEXT,U-NEXT,FALENO,お得,30日間無料,VOD,AV女優一覧",
-  url: "https://next-av-app.com",
+  url: "https://www.next-av-app.com",
 };
