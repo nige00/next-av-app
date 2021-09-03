@@ -128,7 +128,9 @@ const Post: NextPage<Props> = ({ Data }) => {
                   ? Data.actress.map((data: string) => (
                       <span className="pr-1" key={data}>
                         <Link
-                          href={`/actress/${decodeURI(data.substr(0, 8))}`}
+                          href={`/actress/${decodeURI(
+                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                          )}`}
                           passHref
                         >
                           <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
@@ -151,7 +153,9 @@ const Post: NextPage<Props> = ({ Data }) => {
                   ? Data.director.map((data: string) => (
                       <span className="pr-1" key={data}>
                         <Link
-                          href={`/director/${decodeURI(data.substr(0, 8))}`}
+                          href={`/director/${decodeURI(
+                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                          )}`}
                           passHref
                         >
                           <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
@@ -174,7 +178,9 @@ const Post: NextPage<Props> = ({ Data }) => {
                   ? Data.series.map((data: string) => (
                       <span className="pr-1" key={data}>
                         <Link
-                          href={`/series/${decodeURI(data.substr(0, 8))}`}
+                          href={`/series/${decodeURI(
+                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                          )}`}
                           passHref
                         >
                           <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
@@ -197,7 +203,9 @@ const Post: NextPage<Props> = ({ Data }) => {
                   ? Data.maker.map((data: string) => (
                       <span className="pr-1" key={data}>
                         <Link
-                          href={`/maker/${decodeURI(data.substr(0, 8))}`}
+                          href={`/maker/${decodeURI(
+                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                          )}`}
                           passHref
                         >
                           <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
@@ -220,7 +228,9 @@ const Post: NextPage<Props> = ({ Data }) => {
                   ? Data.genre.map((data: string) => (
                       <span className="pr-1" key={data}>
                         <Link
-                          href={`/genre/${decodeURI(data.substr(0, 8))}`}
+                          href={`/genre/${decodeURI(
+                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                          )}`}
                           passHref
                         >
                           <a className="text-blue-500 hover:opacity-90 border-b border-blue-500">
