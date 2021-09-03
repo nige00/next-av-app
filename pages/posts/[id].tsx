@@ -129,7 +129,12 @@ const Post: NextPage<Props> = ({ Data }) => {
                       <span className="pr-1" key={data}>
                         <Link
                           href={`/actress/${decodeURI(
-                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                            data
+                              .substr(0, 8)
+                              .replace(
+                                /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）/g,
+                                ""
+                              )
                           )}`}
                           passHref
                         >
@@ -154,7 +159,12 @@ const Post: NextPage<Props> = ({ Data }) => {
                       <span className="pr-1" key={data}>
                         <Link
                           href={`/director/${decodeURI(
-                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                            data
+                              .substr(0, 8)
+                              .replace(
+                                /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）/g,
+                                ""
+                              )
                           )}`}
                           passHref
                         >
@@ -179,7 +189,12 @@ const Post: NextPage<Props> = ({ Data }) => {
                       <span className="pr-1" key={data}>
                         <Link
                           href={`/series/${decodeURI(
-                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                            data
+                              .substr(0, 8)
+                              .replace(
+                                /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）/g,
+                                ""
+                              )
                           )}`}
                           passHref
                         >
@@ -204,7 +219,12 @@ const Post: NextPage<Props> = ({ Data }) => {
                       <span className="pr-1" key={data}>
                         <Link
                           href={`/maker/${decodeURI(
-                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                            data
+                              .substr(0, 8)
+                              .replace(
+                                /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）/g,
+                                ""
+                              )
                           )}`}
                           passHref
                         >
@@ -229,7 +249,12 @@ const Post: NextPage<Props> = ({ Data }) => {
                       <span className="pr-1" key={data}>
                         <Link
                           href={`/genre/${decodeURI(
-                            data.substr(0, 8).replace(/○|〇|●|×/g, "")
+                            data
+                              .substr(0, 8)
+                              .replace(
+                                /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）/g,
+                                ""
+                              )
                           )}`}
                           passHref
                         >
