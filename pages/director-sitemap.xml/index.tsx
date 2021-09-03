@@ -4,7 +4,7 @@ import { directorList } from "../../lib/directorList";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = directorList.map((data) => ({
-    loc: `https://www.next-av-app.com/director/${data.pageUrl}`,
+    loc: `https://www.next-av-app.com/director/${decodeURI(data.pageUrl)}`,
     lastmod: new Date().toISOString(),
   }));
 

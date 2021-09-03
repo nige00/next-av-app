@@ -4,7 +4,7 @@ import { makerList } from "../../lib/makerList";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = makerList.map((data) => ({
-    loc: `https://www.next-av-app.com/maker/${data.pageUrl}`,
+    loc: `https://www.next-av-app.com/maker/${decodeURI(data.pageUrl)}`,
     lastmod: new Date().toISOString(),
   }));
 

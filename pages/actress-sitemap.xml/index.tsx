@@ -4,7 +4,7 @@ import { actressList } from "../../lib/actressList";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = actressList.map((data) => ({
-    loc: `https://www.next-av-app.com/actress/${data.pageUrl}`,
+    loc: `https://www.next-av-app.com/actress/${decodeURI(data.pageUrl)}`,
     lastmod: new Date().toISOString(),
   }));
 

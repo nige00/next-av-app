@@ -4,7 +4,7 @@ import { genreList } from "../../lib/genreList";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = genreList.map((data) => ({
-    loc: `https://www.next-av-app.com/genre/${data.pageUrl}`,
+    loc: `https://www.next-av-app.com/genre/${decodeURI(data.pageUrl)}`,
     lastmod: new Date().toISOString(),
   }));
 

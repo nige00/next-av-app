@@ -4,7 +4,7 @@ import { seriesList } from "../../lib/seriesList";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = seriesList.map((data) => ({
-    loc: `https://www.next-av-app.com/series/${data.pageUrl}`,
+    loc: `https://www.next-av-app.com/series/${decodeURI(data.pageUrl)}`,
     lastmod: new Date().toISOString(),
   }));
 
