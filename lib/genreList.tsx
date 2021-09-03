@@ -22,9 +22,9 @@ const newResult = arrayName.map((name) => {
     genreName: name,
     pageUrl: decodeURI(
       name
-        .substr(0, 8)
+        .substr(0, 10)
         .replace(
-          /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）|・|〜|『|』|-| |。|ー|.|’|、|…|％|～|？|☆|‘/g,
+          /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）|・|〜|『|』|-| |。|ー|’|、|…|％|～|？|☆|‘/g,
           ""
         )
     ),
