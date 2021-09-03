@@ -21,7 +21,12 @@ const newResult = arrayName.map((name) => {
   return {
     makerName: name,
     pageUrl: decodeURI(
-      name.substr(0, 8).replace(/○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）/g, "")
+      name
+        .substr(0, 8)
+        .replace(
+          /○|〇|●|×|★|＆|◆|【|】|♀|「|」|！|（|）|・|〜|『|』|-| |。|ー|/g,
+          ""
+        )
     ),
   };
 });
