@@ -3,7 +3,14 @@ import { getServerSideSitemap, ISitemapField } from "next-sitemap";
 import { actressList } from "../../lib/actressList";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const fields: ISitemapField[] = actressList.map((data) => ({
+  // sitemapに"----"の分が表示されないようにする
+  const datalist = actressList.filter((item) => {
+    if (item.pageUrl != "----") {
+      return item;
+    }
+  });
+
+  const fields: ISitemapField[] = datalist.map((data) => ({
     loc: `https://www.next-av-app.com/actress/${decodeURI(data.pageUrl)
       .substr(0, 10)
       .replace(

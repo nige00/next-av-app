@@ -3,7 +3,14 @@ import { getServerSideSitemap, ISitemapField } from "next-sitemap";
 import { makerList } from "../../lib/makerList";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const fields: ISitemapField[] = makerList.map((data) => ({
+  // sitemapに"----"の分が表示されないようにする
+  const datalist = makerList.filter((item) => {
+    if (item.pageUrl != "----") {
+      return item;
+    }
+  });
+
+  const fields: ISitemapField[] = datalist.map((data) => ({
     loc: `https://www.next-av-app.com/maker/${decodeURI(data.pageUrl)
       .substr(0, 10)
       .replace(

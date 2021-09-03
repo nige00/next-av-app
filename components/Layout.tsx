@@ -62,7 +62,7 @@ const Layout: NextPage<Props> = ({
           </a>
         </Link>
         <Link href="/posts" passHref>
-          <a className="px-4 font-sans text-gray-600">FALENO作品一覧</a>
+          <a className="px-4 font-sans text-gray-600">紹介作品一覧</a>
         </Link>
         <Link href="/ondemand" passHref>
           <a className="px-4 font-sans text-gray-600">見放題作品</a>
