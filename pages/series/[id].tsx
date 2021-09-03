@@ -36,6 +36,17 @@ const Post: NextPage<Props> = ({ Data }) => {
     return 0;
   });
 
+  const datalist = [];
+  if (seriesAvList.length <= 60) {
+    for (let i = 0; i < seriesAvList.length; i++) {
+      datalist.push(seriesAvList[i]);
+    }
+  } else {
+    for (let i = 0; i < 60; i++) {
+      datalist.push(seriesAvList[i]);
+    }
+  }
+
   return (
     <Layout
       title={`${fixedSentence.date}H-NEXTで見れる『${Data.seriesName}』シリーズのAV作品まとめ`}
@@ -73,7 +84,7 @@ const Post: NextPage<Props> = ({ Data }) => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 w-11/12">
-        {seriesAvList.map((content, index) => {
+        {datalist.map((content, index) => {
           return (
             <div key={content.forUrlNumber}>
               <div className="flex flex-col justify-center items-center">
@@ -113,6 +124,17 @@ const Post: NextPage<Props> = ({ Data }) => {
             </div>
           );
         })}
+      </div>
+      <div className="flex flex-col justify-center items-center py-4 cursor-pointer">
+        <span className="py-1 text-sm">{fixedSentence.microCopy}</span>
+        <a
+          className="py-3 px-8 text-xl text-white bg-pink-500 hover:bg-pink-400 rounded transition"
+          href={fixedSentence.affiliateLink}
+          rel="nofollow noopener noreferrer"
+          target="_blank"
+        >
+          H-NEXTでもっと見る
+        </a>
       </div>
     </Layout>
   );

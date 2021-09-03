@@ -20,7 +20,7 @@ let arrayName = arrayList.filter((item) => {
 const newResult = arrayName.map((name) => {
   return {
     genreName: name,
-    pageUrl: decodeURI(name),
+    pageUrl: decodeURI(name.substr(0, 8)),
   };
 });
 
