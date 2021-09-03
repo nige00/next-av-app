@@ -18,10 +18,10 @@ const Home: NextPage = () => {
       type="website"
     >
       <h1 className="text-xl sm:text-2xl text-gray-600">
-        {`${fixedSentence.date}H-NEXTでFALENO作品が大量配信中｜人気作品をまとめました`}
+        {`${fixedSentence.date}H-NEXTでアダルトビデオが大量配信中｜人気作品をまとめました`}
       </h1>
       <div className="flex flex-col justify-center items-center py-4 cursor-pointer">
-        <span className="py-1 text-sm">＼FALENOとは？／</span>
+        <span className="py-1 text-sm">＼H-NEXTとは？／</span>
         <a
           className="py-3 px-8 text-xl text-white bg-pink-500 hover:bg-pink-400 rounded transition"
           href={fixedSentence.affiliateLink}
